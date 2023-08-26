@@ -1,35 +1,36 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import styled, { createGlobalStyle } from 'styled-components';
 
-function App() {
-  const [count, setCount] = useState(0);
+const GlobalStyle = createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+}
 
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+`;
+
+const Header = styled.h1`
+  color: #f00;
+`;
+
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Hello <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobalStyle />
+      <Header>This is just a test if styled components is working</Header>
     </>
   );
-}
+};
 
 export default App;
